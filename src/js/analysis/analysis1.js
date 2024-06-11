@@ -1,7 +1,14 @@
-// Load data and create a D3 visualization
-fetch('../data/analysis1.json')
-    .then(response => response.json())
+fetch('../../data/analysis1.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
-        // Create your D3 visualization here using the data
+        // Process the JSON data
         console.log(data);
+    })
+    .catch(error => {
+        console.error('Error loading JSON:', error);
     });

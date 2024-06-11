@@ -1,0 +1,8 @@
+[
+    { "country": "Germany", "year": 2019, "votes": 23.4 },
+    { "country": "France", "year": 2019, "votes": 21.2 },
+    { "country": "Italy", "year": 2019, "votes": 15.8 },
+    { "country": "Germany", "year": 2024, "votes": 25.1 },
+    { "country": "France", "year": 2024, "votes": 19.5 },
+    { "country": "Italy", "year": 2024, "votes": 17.3 }
+]
