@@ -1,4 +1,4 @@
 baseURL = 'https://LucaLiverani.github.io/datibrutti/'
 languageCode = 'en-us'
 title = 'datibrutti'
-theme= 'PaperMod'
+theme = 'PaperMod'

@@ -19,8 +19,8 @@ jobs:
 
       - name: Update submodules
         run: |
-          git submodule update --init --recursive
-          git submodule update --remote --merge
+          git submodule init
+          git submodule update --recursive --remote
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -30,8 +30,12 @@ jobs:
 
       - name: List files
         run: |
+          echo "Root directory:"
           ls -la
+          echo "Themes directory:"
           ls -la themes
+          echo "PaperMod theme directory:"
+          ls -la themes/PaperMod || echo "PaperMod directory not found"
 
       - name: Build
         run: hugo --minify
