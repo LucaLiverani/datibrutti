@@ -1,0 +1,7 @@
+<!-- layouts/partials/head/script.html -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+{{ if .Params.includeJS }}
+    {{ range .Params.includeJS }}
+        <script src="/js/graphs/{{ . }}"></script>
+    {{ end }}
+{{ end }}

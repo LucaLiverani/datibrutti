@@ -9,9 +9,19 @@ categories:
 tags:
     - Example Tag
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)
+includeJS:
+    - bar-chart.js
 ---
 
 Welcome to Hugo theme Stack. This is your first post. Edit or delete it, then start writing!
+
+<div id="bar-chart"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    createBarChart("bar-chart", [10, 20, 30, 40, 50]);
+});
+</script>
 
 For more information about this theme, check the documentation: https://stack.jimmycai.com/
 
