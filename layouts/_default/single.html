@@ -1,6 +1,6 @@
 {{ define "body-class" }}
     article-page
-    {{/* 
+    {{/*
         Enable the right sidebar if
             - Widget different from 'TOC' is enabled
             - TOC is enabled and not empty
@@ -19,7 +19,7 @@
     {{- $TOCEnabled := and (not $TOCManuallyDisabled) $TOCWidgetEnabled -}}
     {{- $hasTOC := ge (len .TableOfContents) 100 -}}
     {{- .Scratch.Set "TOCEnabled" (and $TOCEnabled $hasTOC) -}}
-    
+
     {{- .Scratch.Set "hasWidget" (or $HasWidgetNotTOC (and $TOCEnabled $hasTOC)) -}}
 {{ end }}
 
@@ -40,9 +40,22 @@
 
     {{ partialCached "article/components/photoswipe" . }}
 
-    <div id="d3-graph"></div>
+    <!-- Conditionally include custom scripts if they exist -->
+    {{ with .Resources.ByType "js" }}
+        {{ range . }}
+            <script src="{{ .RelPermalink }}"></script>
+        {{ end }}
+    {{ end }}
+
+    <!-- Conditionally include custom HTML if it exists -->
+    {{ with .Resources.ByType "html" }}
+        {{ range . }}
+            {{ .Content | safeHTML }}
+        {{ end }}
+    {{ end }}
+
 {{ end }}
 
 {{ define "right-sidebar" }}
-    {{ if .Scratch.Get "hasWidget" }}{{ partial "sidebar/right.html" (dict "Context" . "Scope" "page") }}{{ end}}
+    {{ if .Scratch.Get "hasWidget" }}{{ partial "sidebar/right.html" (dict "Context" . "Scope" "page") }}{{ end }}
 {{ end }}

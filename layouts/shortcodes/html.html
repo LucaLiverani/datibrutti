@@ -1,0 +1,4 @@
+{{/* layouts/shortcodes/html.html */}}
+{{- with .Get "src" }}
+{{ readFile (.Page.Resources.GetMatch .).RelPermalink }}
+{{- end }}

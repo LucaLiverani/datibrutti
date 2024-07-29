@@ -1,0 +1,4 @@
+{{/* layouts/shortcodes/js.html */}}
+{{- with .Get "src" }}
+<script src="{{ . | relURL }}"></script>
+{{- end }}

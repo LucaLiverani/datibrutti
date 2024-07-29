@@ -1,0 +1,4 @@
+{{ $file := .Get "file" }}
+{{ with .Page.Resources.GetMatch $file }}
+  {{ .Content | safeHTML }}
+{{ end }}
